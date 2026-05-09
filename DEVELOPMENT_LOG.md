@@ -4,6 +4,48 @@ A running log of significant work done on the portfolio. Newest entries on top.
 
 ---
 
+## [2026-05-09] — All sections, contact API, sitemap, robots, project data
+
+**What was built:**
+- `lib/projects.ts` typed array with all 8 projects from the design reference (HeyPeach, Παραδοσιακή Ταβέρνα, Frames Koronaios, Online Ordering, Roula's Studio, Smile Studio, Peris Auto, Cohort Suites). Bilingual title / client / meta / description per project, plus gradient + tag label.
+- Section components: `Hero`, `HowIWork`, `Work`, `Services`, `Contact`, `Footer`. Composed in `app/[locale]/page.tsx` after `Nav`.
+- Helper components: `FloatingDecor` (heart + star with CSS keyframe animations), `ProjectCard` (data-driven, optional `liveUrl` wraps in anchor), `Reveal` (Framer Motion scroll-reveal with the brief's defaults), `MotionProvider` (LazyMotion + `domAnimation` + `MotionConfig reducedMotion="user"`).
+- Comprehensive `app/globals.css` ported from `design.html`: hero, sticky notes (`:nth-child` rotations + colors), project cards, services cards (with terracotta/sage icon variants), dark contact section with rounded top corners, footer, mobile media query at 880px, reduced-motion override.
+- `app/api/contact/route.ts` POST endpoint: honeypot, email/length validation, in-memory IP rate limit (60 s), Resend send to `alex@gkiafis.gr`. Returns `{ success: true }` or `{ error }` with appropriate status.
+- `app/sitemap.ts` and `app/robots.ts` (Next.js metadata route handlers) — sitemap lists `/` and `/en` with `hreflang` alternates.
+- `messages/{el,en}.json` expanded with hero / howIWork / work / services / contact / footer namespaces, including rich-text `<highlight>` and `<em>` tags for h1 / h2 interpolation.
+- `README.md` documents stack, dev commands, env vars, project structure, and maintenance hooks.
+- `HEALTH_CHECK.md` lists routes, integrations, visual checks, accessibility checks, and the placeholders that still need real assets.
+
+**Files created/modified:**
+- new: `lib/projects.ts`
+- new: `components/{FloatingDecor,ProjectCard,Reveal,MotionProvider}.tsx`
+- new: `components/sections/{Hero,HowIWork,Work,Services,Contact,Footer}.tsx`
+- new: `app/api/contact/route.ts`, `app/sitemap.ts`, `app/robots.ts`
+- new: `HEALTH_CHECK.md`
+- modified: `app/[locale]/layout.tsx` (wraps children in `MotionProvider`)
+- modified: `app/[locale]/page.tsx` (composes all sections)
+- modified: `app/globals.css` (full design.html port)
+- modified: `messages/el.json`, `messages/en.json`
+- modified: `README.md`
+
+**Known limitations:**
+- Avatar in Nav, hero photo, and all project image areas are still gradient/colored placeholders. Real assets to be dropped in by owner per `HEALTH_CHECK.md` § placeholders.
+- `/api/contact` rate limit is in-memory only — resets on cold-start in serverless. Fine for v1; upgrade to KV/Redis when traffic warrants.
+- No `og-image.png` file shipped yet — referenced in metadata but will 404 until placed at `/public/og-image.png`.
+- JSON-LD `Person` structured data not added yet (brief §7 mentions it, but it's nice-to-have for v1 and adds nothing beyond what Open Graph already gives).
+
+**To verify after build:**
+- `/` and `/en` render all 7 sections in order.
+- Hover states work on desktop: nav links → terracotta, sticky notes → straighten + lift, project cards → lift, service cards → lift.
+- Mobile (<880 px): hero stacks photo-on-top, stickies/projects/services collapse to single column, floats hidden.
+- Language toggle: clicking EN on `/` → `/en`; clicking ΕΛ on `/en` → `/`.
+- POST `/api/contact` with valid body returns 200; honeypot non-empty returns 200 silently; under-10-char message returns 400.
+
+**How to roll back:** `git revert <commit-hash>`
+
+---
+
 ## [2026-05-09] — Foundations: i18n, design tokens, fonts, Nav
 
 **What was built:**

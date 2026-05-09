@@ -4,6 +4,7 @@ import { Caveat, Fraunces, DM_Sans } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import MotionProvider from '@/components/MotionProvider';
 import '../globals.css';
 
 // Caveat only ships Latin/Cyrillic glyphs; Greek text in this font falls back
@@ -91,7 +92,7 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

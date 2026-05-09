@@ -14,5 +14,49 @@
     "description": "Custom-coded websites, e-shops, and systems in Next.js for small Greek businesses. Athens.",
     "ogTitle": "Alexandros Gkiafis — Custom Websites",
     "ogDescription": "Custom-coded websites and custom systems for Greek businesses."
+  },
+  "hero": {
+    "h1": "Custom <highlight>websites</highlight> for businesses that want <em>something of their own.</em>",
+    "sub": "Sites, e-shops and custom systems in Next.js. Designed to stand out, built to last.",
+    "ctaPrimary": "See work →",
+    "ctaSecondary": "or book a call",
+    "photoTag": "— Αλέξανδρος",
+    "photoAlt": "Portrait of Alexandros Gkiafis"
+  },
+  "howIWork": {
+    "tag": "how I work",
+    "title": "Three steps, no surprises.",
+    "step1Title": "We start with a conversation.",
+    "step1Body": "Before anything else, I want to understand your business. Often the right solution isn't the one you had in mind — and we find it together.",
+    "step2Title": "Mockups before commitment.",
+    "step2Body": "I send 1-2 mockups before we lock in pricing. That way you know exactly what you're getting and we avoid surprises.",
+    "step3Title": "Custom code, not templates.",
+    "step3Body": "Built in Next.js and React — fast on mobile, optimized for Google. Hosting and minor changes included for the first year."
+  },
+  "work": {
+    "tag": "work",
+    "title": "Recent projects."
+  },
+  "services": {
+    "tag": "services",
+    "title": "What I can build.",
+    "card1Title": "Websites & E-shops",
+    "card1Body": "From custom-coded business sites to full online stores with checkout and order management.",
+    "card2Title": "SEO",
+    "card2Body": "Local search, on-page optimization, structure. When people search for your service in your area, they find you.",
+    "card3Title": "Custom Systems",
+    "card3Body": "Online ordering, appointment booking, digital menus, dashboards. Anything that automates your workflow.",
+    "footer": "Every project different. Send a message for a quote →"
+  },
+  "contact": {
+    "h2": "Let's grab a <em>coffee?</em>",
+    "p": "30-minute chat, at your place or on a call. No commitment.",
+    "btnPrimary": "Book a call",
+    "btnWhatsapp": "WhatsApp",
+    "btnEmail": "Email",
+    "whatsappGreeting": "Hi Alex, I'm interested in your services."
+  },
+  "footer": {
+    "copyright": "© 2026 Αλέξανδρος Γκιάφης"
   }
 }
