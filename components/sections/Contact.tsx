@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-
-const EMAIL = 'alexgkiafis@gmail.com';
-const PHONE_DISPLAY = '+30 694 546 5063';
-const PHONE_DIGITS = '306945465063';
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  CONTACT_PHONE_WHATSAPP
+} from '@/lib/contact';
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -32,14 +34,14 @@ export default function Contact() {
     openBtnRef.current?.focus();
   };
 
-  const emailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent(
+  const emailUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
     t('emailSubject')
   )}&body=${encodeURIComponent(t('emailBody'))}`;
-  const viberUrl = `viber://chat?number=${encodeURIComponent('+' + PHONE_DIGITS)}`;
-  const whatsappUrl = `https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent(
+  const viberUrl = `viber://chat?number=${encodeURIComponent(CONTACT_PHONE_TEL)}`;
+  const whatsappUrl = `https://wa.me/${CONTACT_PHONE_WHATSAPP}?text=${encodeURIComponent(
     t('whatsappGreeting')
   )}`;
-  const phoneUrl = `tel:+${PHONE_DIGITS}`;
+  const phoneUrl = `tel:${CONTACT_PHONE_TEL}`;
 
   return (
     <>
@@ -100,7 +102,7 @@ export default function Contact() {
           <div className="modal-options">
             <a href={viberUrl} className="modal-option modal-option-primary">
               <div className="modal-option-label">{t('optionViber')}</div>
-              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-detail">{CONTACT_PHONE_DISPLAY}</div>
               <div className="modal-option-hint">{t('viberHint')}</div>
             </a>
             <a
@@ -110,17 +112,17 @@ export default function Contact() {
               className="modal-option"
             >
               <div className="modal-option-label">{t('optionWhatsapp')}</div>
-              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-detail">{CONTACT_PHONE_DISPLAY}</div>
               <div className="modal-option-hint">{t('whatsappHint')}</div>
             </a>
             <a href={emailUrl} className="modal-option">
               <div className="modal-option-label">{t('optionEmail')}</div>
-              <div className="modal-option-detail">{EMAIL}</div>
+              <div className="modal-option-detail">{CONTACT_EMAIL}</div>
               <div className="modal-option-hint">{t('emailHint')}</div>
             </a>
             <a href={phoneUrl} className="modal-option">
               <div className="modal-option-label">{t('optionPhone')}</div>
-              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-detail">{CONTACT_PHONE_DISPLAY}</div>
               <div className="modal-option-hint">{t('phoneHint')}</div>
             </a>
           </div>

@@ -1,8 +1,9 @@
 import { useTranslations } from 'next-intl';
-
-const EMAIL = 'alexgkiafis@gmail.com';
-const PHONE_DISPLAY = '+30 694 546 5063';
-const PHONE_DIGITS = '306945465063';
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL
+} from '@/lib/contact';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -11,11 +12,11 @@ export default function Footer() {
     <footer>
       <div className="footer-inner">
         <div className="footer-contact">
-          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           <span className="footer-sep" aria-hidden="true">
             ·
           </span>
-          <a href={`tel:+${PHONE_DIGITS}`}>{PHONE_DISPLAY}</a>
+          <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE_DISPLAY}</a>
         </div>
         <div className="footer-copy">{t('copyright')}</div>
       </div>
