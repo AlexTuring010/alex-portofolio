@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import FloatingDecor from '@/components/FloatingDecor';
 
 export default function Hero() {
   const t = useTranslations('hero');
 
   return (
     <section className="hero">
-      <FloatingDecor />
       <div className="hero-grid">
         <div className="hero-content">
           <h1>

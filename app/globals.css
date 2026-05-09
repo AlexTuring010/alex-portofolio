@@ -307,27 +307,30 @@ button:focus-visible {
   text-underline-offset: 6px;
 }
 
-/* Floating decorations */
-.float {
+/* Floating decorations — anchored to the text they belong to, so they
+   stay in place whether the hero is desktop two-column or mobile stack. */
+.hero h1 .highlight::after {
+  content: "❤";
   position: absolute;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.float.heart {
-  top: 60px;
-  left: 45%;
-  font-size: 28px;
+  right: -2px;
+  top: -28px;
+  font-size: 24px;
+  line-height: 1;
   color: var(--terracotta);
   animation: float 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.float.star {
-  bottom: 120px;
-  left: 38%;
-  font-size: 24px;
+.hero-cta-secondary::after {
+  content: "✦";
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 22px;
+  line-height: 1;
   color: var(--mustard);
   animation: float 3.5s ease-in-out infinite reverse;
+  vertical-align: middle;
+  text-decoration: none;
 }
 
 @keyframes float {
@@ -999,10 +1002,6 @@ body.modal-open {
   .service-cards {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-
-  .float {
-    display: none;
   }
 
   .hero-cta-secondary {
