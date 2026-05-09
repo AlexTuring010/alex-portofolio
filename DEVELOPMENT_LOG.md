@@ -4,6 +4,35 @@ A running log of significant work done on the portfolio. Newest entries on top.
 
 ---
 
+## [2026-05-09] — Visual fidelity fixes + real photo
+
+**What changed:**
+- Real `/public/me.jpg` is now used for both the Nav avatar and Hero photo via `next/image` (placeholder gradients removed).
+- Nav refactored to use the design.html class names (`.nav-top`, `.logo-wrap`, `.nav-avatar`, `.logo-mark`, `.links`) instead of Tailwind utilities. CSS rules ported verbatim including the 880 px mobile breakpoint.
+- LanguageToggle is now `<Link>`-based (no `useTransition` / `router.replace`). Uses `scroll={false}` and `prefetch` so the EL ↔ EN switch is a client-side route swap with no scroll jump and no flicker.
+- Removed `<Reveal>` (Framer Motion scroll-fade) from every section. design.html had no scroll-in animations; the Contact section's "shade-in" is gone. CSS hover effects (sticky lift, project lift, button shadow grow) still work.
+- Deleted `components/Reveal.tsx` and `components/MotionProvider.tsx`. Uninstalled `framer-motion` — bundle is lighter, no behavior is lost.
+- Font configs cleaned up:
+  - Fraunces: dropped `axes: ['SOFT', 'WONK', 'opsz']`. Now loads `weight: ['400','500','600']` + `style: ['normal','italic']` to match design.html's exact font instances (which include opsz default + italic).
+  - All three fonts now pass `adjustFontFallback: false` + explicit `fallback: [...]`. This stops next/font from injecting a metric-adjusted intermediate font that was making Greek text (which falls back to OS serif/sans) render slightly differently from design.html.
+
+**Files changed:**
+- `app/[locale]/layout.tsx`, `app/globals.css`
+- `components/sections/{Nav,Hero,HowIWork,Work,Services,Contact}.tsx`
+- `components/LanguageToggle.tsx`
+- removed: `components/{Reveal,MotionProvider}.tsx`
+- `package.json` (removed framer-motion)
+
+**Why:** Owner reported five issues against a screenshot of design.html rendered with the real photo: (1) navbar avatar wrong + lang toggle cramped, (2) Greek line breaks and font weights off, (3) Contact "shade-in" not in original, (4) locale switch not smooth, (5) use `/public/me.jpg`.
+
+**To verify after deploy:**
+- Avatar in nav and circular hero photo both show the real portrait.
+- Greek h1 wraps the same way as in `design.html` (no awkward single-word lines).
+- Clicking ΕΛ ↔ EN swaps language without scroll jump or fade flicker.
+- Scrolling past Contact: the dark band is just there, no fade-up animation.
+
+---
+
 ## [2026-05-09] — All sections, contact API, sitemap, robots, project data
 
 **What was built:**

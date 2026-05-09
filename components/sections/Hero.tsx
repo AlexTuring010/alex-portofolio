@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import FloatingDecor from '@/components/FloatingDecor';
 
@@ -24,11 +25,13 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-photo-wrap">
-          {/* Placeholder until owner provides /public/photos/alex.jpg */}
-          <div
+          <Image
+            src="/me.jpg"
+            alt={t('photoAlt')}
+            width={320}
+            height={320}
             className="hero-photo"
-            role="img"
-            aria-label={t('photoAlt')}
+            priority
           />
           <div className="hero-photo-tag">{t('photoTag')}</div>
         </div>

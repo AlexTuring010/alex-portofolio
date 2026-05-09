@@ -4,32 +4,38 @@ import { Caveat, Fraunces, DM_Sans } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import MotionProvider from '@/components/MotionProvider';
 import '../globals.css';
 
-// Caveat only ships Latin/Cyrillic glyphs; Greek text in this font falls back
-// to system handwriting (matches the reference HTML behavior).
+// All three fonts ship Latin only — Greek glyphs come from the OS default
+// serif/sans, matching how design.html behaves. adjustFontFallback:false
+// keeps next/font from injecting a metric-adjusted intermediate that would
+// render Greek differently from the reference.
 const caveat = Caveat({
   subsets: ['latin'],
   variable: '--ff-caveat',
   weight: ['400', '500', '600', '700'],
-  display: 'swap'
+  display: 'swap',
+  adjustFontFallback: false,
+  fallback: ['cursive']
 });
 
-// Fraunces and DM Sans also don't ship Greek subsets. Greek body/headings
-// fall back to system serif/sans (matches the reference HTML behavior).
 const fraunces = Fraunces({
   subsets: ['latin'],
   variable: '--ff-fraunces',
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
   display: 'swap',
-  axes: ['SOFT', 'WONK', 'opsz']
+  adjustFontFallback: false,
+  fallback: ['serif']
 });
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--ff-dm-sans',
   weight: ['400', '500', '600'],
-  display: 'swap'
+  display: 'swap',
+  adjustFontFallback: false,
+  fallback: ['system-ui', 'sans-serif']
 });
 
 export function generateStaticParams() {
@@ -92,7 +98,7 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          <MotionProvider>{children}</MotionProvider>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

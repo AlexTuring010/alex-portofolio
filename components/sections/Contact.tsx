@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import Reveal from '@/components/Reveal';
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -14,36 +13,34 @@ export default function Contact() {
     : '#';
 
   return (
-    <Reveal>
-      <section className="contact" id="contact">
-        <h2>
-          {t.rich('h2', {
-            em: (chunks) => <em>{chunks}</em>
-          })}
-        </h2>
-        <p>{t('p')}</p>
-        <div className="contact-buttons">
-          <a
-            href={calendlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            {t('btnPrimary')}
-          </a>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary"
-          >
-            {t('btnWhatsapp')}
-          </a>
-          <a href={`mailto:${email}`} className="btn-secondary">
-            {t('btnEmail')}
-          </a>
-        </div>
-      </section>
-    </Reveal>
+    <section className="contact" id="contact">
+      <h2>
+        {t.rich('h2', {
+          em: (chunks) => <em>{chunks}</em>
+        })}
+      </h2>
+      <p>{t('p')}</p>
+      <div className="contact-buttons">
+        <a
+          href={calendlyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary"
+        >
+          {t('btnPrimary')}
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary"
+        >
+          {t('btnWhatsapp')}
+        </a>
+        <a href={`mailto:${email}`} className="btn-secondary">
+          {t('btnEmail')}
+        </a>
+      </div>
+    </section>
   );
 }
