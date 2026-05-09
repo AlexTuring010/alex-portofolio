@@ -4,6 +4,25 @@ A running log of significant work done on the portfolio. Newest entries on top.
 
 ---
 
+## [2026-05-09] — Add NKUA Educational Platform project + simplify placeholderLabel
+
+**What changed:**
+- Inserted `signal-processing-hub` as the second entry in `lib/projects.ts` (between HeyPeach and the tavern). It's a Live, `systems`-category collaborative study platform for a Communication Systems course at NKUA Informatics — 33 theory sections, solved-exam filtering, quiz mode, formula sheet, points/leaderboard, auth, search. `liveUrl` points at `signal-processing-with-alexturing.vercel.app`. Gradient uses ink → terracotta for a darker/technical feel.
+- Owner provided `public/projects/signals.png`, so `image` is set on this entry; the card renders the screenshot via the existing `.has-image` treatment (2 px ink border, top-down overlay, hover zoom).
+- Refactored `Project.placeholderLabel` from a required `{ el, en }` object to an optional `string`. `ProjectCard` now falls back to `title[locale]` when `placeholderLabel` is absent. Existing entries updated:
+  - HeyPeach: dropped (has `image`).
+  - Tavern: `'Traditional Tavern'`.
+  - Frames: `'Frames Koronaios'`.
+  - Ordering: `'Ordering System'`.
+  - NKUA: `'Class Hub'`.
+
+**Why:** Owner explicitly requested the type simplification ("Add an optional `placeholderLabel?: string`, defaulting to `title[locale]` when absent"). The previous bilingual structure was overkill — most placeholders read the same in both locales, and the one that didn't (the tavern) reads fine as English-only on the gradient card.
+
+**Files changed:**
+- `lib/projects.ts`, `components/ProjectCard.tsx`
+
+---
+
 ## [2026-05-09] — Visual fidelity fixes + real photo
 
 **What changed:**

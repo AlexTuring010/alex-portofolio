@@ -26,7 +26,7 @@ export default function ProjectCard({
           />
         ) : (
           <span className="project-img-label">
-            {project.placeholderLabel[locale]}
+            {project.placeholderLabel ?? project.title[locale]}
           </span>
         )}
         <span className="project-tag">{project.tagLabel}</span>

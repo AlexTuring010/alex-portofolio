@@ -11,7 +11,8 @@ export type Project = {
   status: ProjectStatus;
   tagLabel: string;
   gradient: string;
-  placeholderLabel: { el: string; en: string };
+  /** Short label shown over the gradient when no `image` is set. Falls back to `title[locale]`. */
+  placeholderLabel?: string;
   image?: string;
   liveUrl?: string;
 };
@@ -30,9 +31,34 @@ export const projects: Project[] = [
     status: 'live',
     tagLabel: 'Live',
     gradient: 'linear-gradient(135deg, var(--terracotta), var(--mustard))',
-    placeholderLabel: { el: 'HeyPeach Magazine', en: 'HeyPeach Magazine' },
     image: '/projects/heypeach.png',
     liveUrl: 'https://blog-nextjs-sanity-weld-nine.vercel.app/'
+  },
+  {
+    slug: 'signal-processing-hub',
+    title: {
+      el: 'Εκπαιδευτική Πλατφόρμα ΕΚΠΑ',
+      en: 'NKUA Educational Platform'
+    },
+    client: {
+      el: 'Συμφοιτητές Πληροφορικής',
+      en: 'CS Classmates'
+    },
+    meta: {
+      el: '~ ΕΚΠΑ Πληροφορική, 2026',
+      en: '~ NKUA Informatics, 2026'
+    },
+    description: {
+      el: 'Συνεργατική πλατφόρμα μελέτης για το μάθημα Συστημάτων Επικοινωνιών. 33 ενότητες θεωρίας, λυμένες ασκήσεις παλαιότερων θεμάτων με filtering, quiz mode, τυπολόγιο, σύστημα σχολίων με points & leaderboard. Auth, search, και custom comment privacy.',
+      en: 'Collaborative study platform for a Communication Systems course. 33 theory sections, solved exam problems with filters, quiz mode, formula sheet, comment system with points & leaderboard. Auth, search, and custom comment privacy.'
+    },
+    category: 'systems',
+    status: 'live',
+    tagLabel: 'Live',
+    gradient: 'linear-gradient(135deg, var(--ink), var(--terracotta))',
+    placeholderLabel: 'Class Hub',
+    image: '/projects/signals.png',
+    liveUrl: 'https://signal-processing-with-alexturing.vercel.app/'
   },
   {
     slug: 'paradosiaki-taverna',
@@ -47,7 +73,7 @@ export const projects: Project[] = [
     status: 'live',
     tagLabel: 'Live',
     gradient: 'linear-gradient(135deg, var(--sage), var(--cream-dark))',
-    placeholderLabel: { el: 'Παραδοσιακή Ταβέρνα', en: 'Traditional Tavern' }
+    placeholderLabel: 'Traditional Tavern'
   },
   {
     slug: 'frames-koronaios',
@@ -62,7 +88,7 @@ export const projects: Project[] = [
     status: 'concept',
     tagLabel: 'Concept',
     gradient: 'linear-gradient(135deg, var(--ink), var(--terracotta))',
-    placeholderLabel: { el: 'Frames Koronaios', en: 'Frames Koronaios' }
+    placeholderLabel: 'Frames Koronaios'
   },
   {
     slug: 'online-ordering',
@@ -77,6 +103,6 @@ export const projects: Project[] = [
     status: 'demo',
     tagLabel: 'Demo',
     gradient: 'linear-gradient(135deg, var(--mustard), var(--sage))',
-    placeholderLabel: { el: 'Ordering System', en: 'Ordering System' }
-  },
+    placeholderLabel: 'Ordering System'
+  }
 ];
