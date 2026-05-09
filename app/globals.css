@@ -343,6 +343,18 @@ button:focus-visible {
   }
 }
 
+/* Shorter-amplitude variant — used by the mobile heart so its peak
+   doesn't reach into the line of text above. */
+@keyframes float-sm {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
 /* Generic section frame */
 section {
   max-width: 1280px;
@@ -1011,11 +1023,13 @@ body.modal-open {
 
   /* Heart needs different anchoring on mobile because the h1 wraps
      differently — desktop's right/top values land it on the trailing
-     's' and overlap 'Custom' on the line above. */
+     's' and overlap 'Custom' on the line above. Also use the short
+     float keyframe so the animation peak stays clear of the line above. */
   .hero h1 .highlight::after {
     right: 18px;
-    top: -10px;
+    top: -2px;
     font-size: 20px;
+    animation-name: float-sm;
   }
 
   .footer-contact {
