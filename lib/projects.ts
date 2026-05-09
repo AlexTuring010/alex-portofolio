@@ -89,20 +89,5 @@ export const projects: Project[] = [
     tagLabel: 'Concept',
     gradient: 'linear-gradient(135deg, var(--ink), var(--terracotta))',
     placeholderLabel: 'Frames Koronaios'
-  },
-  {
-    slug: 'online-ordering',
-    title: { el: 'Online Ordering', en: 'Online Ordering' },
-    client: { el: 'Ordering System', en: 'Ordering System' },
-    meta: { el: '~ Custom σύστημα', en: '~ Custom system' },
-    description: {
-      el: 'Live ordering app για μικρές επιχειρήσεις. Stripe checkout, real-time παραγγελίες, admin dashboard. Χωρίς commission σε τρίτους.',
-      en: 'Live ordering app for small businesses. Stripe checkout, real-time orders, admin dashboard. No third-party commission.'
-    },
-    category: 'systems',
-    status: 'demo',
-    tagLabel: 'Demo',
-    gradient: 'linear-gradient(135deg, var(--mustard), var(--sage))',
-    placeholderLabel: 'Ordering System'
   }
 ];
