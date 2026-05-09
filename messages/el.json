@@ -52,9 +52,24 @@
     "h2": "Πάμε για έναν <em>καφέ;</em>",
     "p": "30 λεπτά συζήτηση, στο μαγαζί σας ή σε κλήση. Καμία υποχρέωση.",
     "btnPrimary": "Κράτησε ραντεβού",
-    "btnWhatsapp": "WhatsApp",
+    "btnViber": "Viber",
     "btnEmail": "Email",
-    "whatsappGreeting": "Γεια σας Αλέξανδρε, ενδιαφέρομαι για τις υπηρεσίες σας."
+    "modalClose": "Κλείσιμο",
+    "modalTag": "πώς θα τα πούμε",
+    "modalTitle": "Διάλεξε το πιο <em>βολικό</em> για σένα.",
+    "modalSub": "Όποιο κι αν διαλέξεις, απαντάω εντός 24 ωρών. Τα Σαββατοκύριακα ίσως λίγο αργότερα.",
+    "modalFooterNote": "Δεν υπάρχει «σωστή» επιλογή. Διάλεξε αυτή που σε βολεύει.",
+    "optionViber": "Viber",
+    "optionWhatsapp": "WhatsApp",
+    "optionEmail": "Email",
+    "optionPhone": "Τηλέφωνο",
+    "viberHint": "ο πιο γρήγορος τρόπος",
+    "whatsappHint": "για επαφές εκτός Ελλάδας",
+    "emailHint": "για πιο αναλυτικά",
+    "phoneHint": "Δευ-Παρ, 10:00 - 19:00",
+    "emailSubject": "Ενδιαφέρον για site",
+    "emailBody": "Καλημέρα Αλέξανδρε,\n\n",
+    "whatsappGreeting": "Καλημέρα Αλέξανδρε, βρήκα το site σας."
   },
   "footer": {
     "copyright": "© 2026 Αλέξανδρος Γκιάφης"

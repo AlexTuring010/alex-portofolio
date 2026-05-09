@@ -1,46 +1,133 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+
+const EMAIL = 'alexgkiafis@gmail.com';
+const PHONE_DISPLAY = '+30 694 546 5063';
+const PHONE_DIGITS = '306945465063';
 
 export default function Contact() {
   const t = useTranslations('contact');
+  const [open, setOpen] = useState(false);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const openBtnRef = useRef<HTMLButtonElement>(null);
 
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || '#';
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '';
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'alex@gkiafis.gr';
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.classList.add('modal-open');
+    closeBtnRef.current?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.classList.remove('modal-open');
+    };
+  }, [open]);
 
-  const greeting = t('whatsappGreeting');
-  const whatsappUrl = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(greeting)}`
-    : '#';
+  const close = () => {
+    setOpen(false);
+    openBtnRef.current?.focus();
+  };
+
+  const emailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent(
+    t('emailSubject')
+  )}&body=${encodeURIComponent(t('emailBody'))}`;
+  const viberUrl = `viber://chat?number=${encodeURIComponent('+' + PHONE_DIGITS)}`;
+  const whatsappUrl = `https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent(
+    t('whatsappGreeting')
+  )}`;
+  const phoneUrl = `tel:+${PHONE_DIGITS}`;
 
   return (
-    <section className="contact" id="contact">
-      <h2>
-        {t.rich('h2', {
-          em: (chunks) => <em>{chunks}</em>
-        })}
-      </h2>
-      <p>{t('p')}</p>
-      <div className="contact-buttons">
-        <a
-          href={calendlyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary"
+    <>
+      <section className="contact" id="contact">
+        <h2>
+          {t.rich('h2', {
+            em: (chunks) => <em>{chunks}</em>
+          })}
+        </h2>
+        <p>{t('p')}</p>
+        <div className="contact-buttons">
+          <button
+            ref={openBtnRef}
+            type="button"
+            className="btn-primary"
+            onClick={() => setOpen(true)}
+          >
+            {t('btnPrimary')}
+          </button>
+          <a href={viberUrl} className="btn-secondary">
+            {t('btnViber')}
+          </a>
+          <a href={emailUrl} className="btn-secondary">
+            {t('btnEmail')}
+          </a>
+        </div>
+      </section>
+
+      <div
+        className={`modal-backdrop${open ? ' open' : ''}`}
+        onClick={close}
+        aria-hidden={!open}
+      >
+        <div
+          className="modal"
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-modal-title"
         >
-          {t('btnPrimary')}
-        </a>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-secondary"
-        >
-          {t('btnWhatsapp')}
-        </a>
-        <a href={`mailto:${email}`} className="btn-secondary">
-          {t('btnEmail')}
-        </a>
+          <button
+            ref={closeBtnRef}
+            type="button"
+            className="modal-close"
+            onClick={close}
+            aria-label={t('modalClose')}
+          >
+            ×
+          </button>
+          <span className="modal-tag">{t('modalTag')}</span>
+          <h3 id="contact-modal-title" className="modal-title">
+            {t.rich('modalTitle', {
+              em: (chunks) => <em>{chunks}</em>
+            })}
+          </h3>
+          <p className="modal-sub">{t('modalSub')}</p>
+
+          <div className="modal-options">
+            <a href={viberUrl} className="modal-option modal-option-primary">
+              <div className="modal-option-label">{t('optionViber')}</div>
+              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-hint">{t('viberHint')}</div>
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modal-option"
+            >
+              <div className="modal-option-label">{t('optionWhatsapp')}</div>
+              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-hint">{t('whatsappHint')}</div>
+            </a>
+            <a href={emailUrl} className="modal-option">
+              <div className="modal-option-label">{t('optionEmail')}</div>
+              <div className="modal-option-detail">{EMAIL}</div>
+              <div className="modal-option-hint">{t('emailHint')}</div>
+            </a>
+            <a href={phoneUrl} className="modal-option">
+              <div className="modal-option-label">{t('optionPhone')}</div>
+              <div className="modal-option-detail">{PHONE_DISPLAY}</div>
+              <div className="modal-option-hint">{t('phoneHint')}</div>
+            </a>
+          </div>
+
+          <p className="modal-footer-note">{t('modalFooterNote')}</p>
+        </div>
       </div>
-    </section>
+    </>
   );
 }

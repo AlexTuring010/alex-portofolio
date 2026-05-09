@@ -52,9 +52,24 @@
     "h2": "Let's grab a <em>coffee?</em>",
     "p": "30-minute chat, at your place or on a call. No commitment.",
     "btnPrimary": "Book a call",
-    "btnWhatsapp": "WhatsApp",
+    "btnViber": "Viber",
     "btnEmail": "Email",
-    "whatsappGreeting": "Hi Alex, I'm interested in your services."
+    "modalClose": "Close",
+    "modalTag": "how to reach me",
+    "modalTitle": "Pick what works <em>best</em> for you.",
+    "modalSub": "Whichever you pick, I reply within 24 hours. Weekends might take a bit longer.",
+    "modalFooterNote": "There's no 'right' choice. Pick what feels easiest.",
+    "optionViber": "Viber",
+    "optionWhatsapp": "WhatsApp",
+    "optionEmail": "Email",
+    "optionPhone": "Phone",
+    "viberHint": "the fastest way",
+    "whatsappHint": "for international contacts",
+    "emailHint": "for more detailed",
+    "phoneHint": "Mon-Fri, 10:00 - 19:00",
+    "emailSubject": "Interested in a site",
+    "emailBody": "Hi Alex,\n\n",
+    "whatsappGreeting": "Hi Alex, I found your site."
   },
   "footer": {
     "copyright": "© 2026 Αλέξανδρος Γκιάφης"
