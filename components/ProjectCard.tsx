@@ -9,12 +9,16 @@ export default function ProjectCard({
   project: Project;
   locale: Locale;
 }) {
+  const hasImage = Boolean(project.image);
   const content = (
     <article className="project">
-      <div className="project-img" style={{ background: project.gradient }}>
-        {project.image ? (
+      <div
+        className={hasImage ? 'project-img has-image' : 'project-img'}
+        style={hasImage ? undefined : { background: project.gradient }}
+      >
+        {hasImage ? (
           <Image
-            src={project.image}
+            src={project.image!}
             alt={`${project.title[locale]} — ${project.client[locale]}`}
             fill
             sizes="(max-width: 880px) 100vw, 50vw"

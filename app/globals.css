@@ -461,11 +461,36 @@ section {
 
 .project-img-photo {
   object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
 }
 
 .project-img-label {
   position: relative;
   z-index: 1;
+}
+
+/* When a project has a real screenshot */
+.project-img.has-image {
+  border: 2px solid var(--ink);
+}
+
+/* Subtle top-down overlay so the cream tag pill stays readable on bright screenshots */
+.project-img.has-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(42, 24, 16, 0.15) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-img .project-tag {
+  z-index: 2;
+}
+
+.project:hover .project-img-photo {
+  transform: scale(1.05);
 }
 
 .project-tag {
