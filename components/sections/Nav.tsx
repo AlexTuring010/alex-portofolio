@@ -17,7 +17,7 @@ export default function Nav() {
           className="nav-avatar"
           priority
         />
-        <span className="logo-mark">Αλέξανδρος</span>
+        <span className="logo-mark">{t('name')}</span>
         <span className="logo-role">/ Web Dev</span>
       </Link>
 

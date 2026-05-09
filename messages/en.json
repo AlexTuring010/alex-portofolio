@@ -1,5 +1,6 @@
 {
   "nav": {
+    "name": "Alexander",
     "work": "Work",
     "services": "Services",
     "contact": "Contact"
@@ -20,7 +21,7 @@
     "sub": "Sites, e-shops and custom systems in Next.js. Designed to stand out, built to last.",
     "ctaPrimary": "See work →",
     "ctaSecondary": "or book a call",
-    "photoTag": "— Αλέξανδρος",
+    "photoTag": "— Alexander",
     "photoAlt": "Portrait of Alexandros Gkiafis"
   },
   "howIWork": {
@@ -72,6 +73,6 @@
     "whatsappGreeting": "Hi Alex, I found your site."
   },
   "footer": {
-    "copyright": "© 2026 Αλέξανδρος Γκιάφης"
+    "copyright": "© 2026 Alexander Gkiafis"
   }
 }
