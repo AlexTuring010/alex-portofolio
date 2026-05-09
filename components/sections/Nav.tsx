@@ -18,6 +18,7 @@ export default function Nav() {
           priority
         />
         <span className="logo-mark">Αλέξανδρος</span>
+        <span className="logo-role">/ Web Dev</span>
       </Link>
 
       <div className="links">

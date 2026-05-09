@@ -117,6 +117,16 @@ button:focus-visible {
   margin-left: 5px;
 }
 
+.logo-role {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  margin-left: 4px;
+}
+
 .nav-top .links {
   display: flex;
   gap: 32px;
@@ -670,6 +680,9 @@ footer {
   }
   .logo-mark {
     font-size: 26px;
+  }
+  .logo-role {
+    display: none;
   }
 
   .hero,
