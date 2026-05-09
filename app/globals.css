@@ -761,7 +761,7 @@ footer {
   border: 3px solid var(--ink);
   border-radius: 24px;
   box-shadow: 8px 8px 0 var(--terracotta);
-  max-width: 520px;
+  max-width: 640px;
   width: 100%;
   padding: 40px;
   position: relative;
@@ -771,6 +771,26 @@ footer {
   max-height: 90vh;
   overflow-y: auto;
   text-align: left;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-soft) transparent;
+}
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--ink-soft);
+  border-radius: 4px;
+  border: 2px solid var(--cream);
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
 }
 
 .modal-backdrop.open .modal {
