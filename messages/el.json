@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "work": "Δουλειές",
+    "services": "Υπηρεσίες",
+    "contact": "Επικοινωνία"
+  },
+  "languageToggle": {
+    "el": "ΕΛ",
+    "en": "EN",
+    "ariaLabel": "Επιλογή γλώσσας"
+  },
+  "metadata": {
+    "title": "Αλέξανδρος Γκιάφης — Custom Websites για ελληνικές επιχειρήσεις",
+    "description": "Custom-coded websites, e-shops και συστήματα σε Next.js για μικρές ελληνικές επιχειρήσεις. Αθήνα.",
+    "ogTitle": "Αλέξανδρος Γκιάφης — Custom Websites",
+    "ogDescription": "Custom-coded websites και custom συστήματα για ελληνικές επιχειρήσεις."
+  }
+}

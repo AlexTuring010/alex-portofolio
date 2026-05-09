@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cream: #FDF6E8;
+  --color-cream-dark: #F4EAD3;
+  --color-ink: #2A1810;
+  --color-ink-soft: #6B4F3F;
+  --color-terracotta: #D67449;
+  --color-terracotta-dark: #B85A30;
+  --color-sage: #87A878;
+  --color-mustard: #E8B547;
+  --color-highlight: #FFE5B4;
+
+  --font-caveat: var(--ff-caveat), "Caveat", cursive;
+  --font-fraunces: var(--ff-fraunces), "Fraunces", serif;
+  --font-sans: var(--ff-dm-sans), "DM Sans", system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #FDF6E8;
+  --cream-dark: #F4EAD3;
+  --ink: #2A1810;
+  --ink-soft: #6B4F3F;
+  --terracotta: #D67449;
+  --terracotta-dark: #B85A30;
+  --sage: #87A878;
+  --mustard: #E8B547;
+  --highlight: #FFE5B4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    radial-gradient(circle at 25% 25%, var(--ink) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, var(--ink) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
+.logo-mark {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-caveat);
+  font-weight: 600;
+  color: var(--ink);
+  transform: rotate(-2deg);
+}
+
+.logo-mark::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 6px;
+  background: var(--mustard);
+  margin-top: -8px;
+  border-radius: 50%;
+  transform: rotate(1deg);
+  margin-left: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: opacity 0.2s !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

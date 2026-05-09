@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "languageToggle": {
+    "el": "ΕΛ",
+    "en": "EN",
+    "ariaLabel": "Language selector"
+  },
+  "metadata": {
+    "title": "Alexandros Gkiafis — Custom Websites for Greek businesses",
+    "description": "Custom-coded websites, e-shops, and systems in Next.js for small Greek businesses. Athens.",
+    "ogTitle": "Alexandros Gkiafis — Custom Websites",
+    "ogDescription": "Custom-coded websites and custom systems for Greek businesses."
+  }
+}
