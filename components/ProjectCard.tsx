@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Project } from '@/lib/projects';
 import type { Locale } from '@/i18n/routing';
 
@@ -11,8 +12,20 @@ export default function ProjectCard({
   const content = (
     <article className="project">
       <div className="project-img" style={{ background: project.gradient }}>
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title[locale]} — ${project.client[locale]}`}
+            fill
+            sizes="(max-width: 880px) 100vw, 50vw"
+            className="project-img-photo"
+          />
+        ) : (
+          <span className="project-img-label">
+            {project.placeholderLabel[locale]}
+          </span>
+        )}
         <span className="project-tag">{project.tagLabel}</span>
-        <span>{project.placeholderLabel[locale]}</span>
       </div>
       <div className="project-meta">{project.meta[locale]}</div>
       <h3>{project.title[locale]}</h3>

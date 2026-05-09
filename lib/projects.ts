@@ -30,7 +30,9 @@ export const projects: Project[] = [
     status: 'live',
     tagLabel: 'Live',
     gradient: 'linear-gradient(135deg, var(--terracotta), var(--mustard))',
-    placeholderLabel: { el: 'HeyPeach Magazine', en: 'HeyPeach Magazine' }
+    placeholderLabel: { el: 'HeyPeach Magazine', en: 'HeyPeach Magazine' },
+    image: '/projects/heypeach.png',
+    liveUrl: 'https://blog-nextjs-sanity-weld-nine.vercel.app/'
   },
   {
     slug: 'paradosiaki-taverna',

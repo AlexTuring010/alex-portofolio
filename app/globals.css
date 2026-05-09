@@ -459,6 +459,15 @@ section {
   padding: 16px;
 }
 
+.project-img-photo {
+  object-fit: cover;
+}
+
+.project-img-label {
+  position: relative;
+  z-index: 1;
+}
+
 .project-tag {
   position: absolute;
   top: 16px;
