@@ -19,11 +19,14 @@ const caveat = Caveat({
   fallback: ['cursive']
 });
 
+// Variable font with the `opsz` axis enabled. Without opsz, large display
+// text (the 96px hero h1) renders with non-display letter widths, which
+// makes "websites" overflow onto a second line. Weight is controlled via
+// CSS — variable fonts cover the whole 100-900 range automatically.
 const fraunces = Fraunces({
   subsets: ['latin'],
   variable: '--ff-fraunces',
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
+  axes: ['opsz'],
   display: 'swap',
   adjustFontFallback: false,
   fallback: ['serif']
