@@ -1009,6 +1009,15 @@ body.modal-open {
     margin: 16px 0 0;
   }
 
+  /* Heart needs different anchoring on mobile because the h1 wraps
+     differently — desktop's right/top values land it on the trailing
+     's' and overlap 'Custom' on the line above. */
+  .hero h1 .highlight::after {
+    right: 18px;
+    top: -10px;
+    font-size: 20px;
+  }
+
   .footer-contact {
     font-size: 13px;
     flex-direction: column;
