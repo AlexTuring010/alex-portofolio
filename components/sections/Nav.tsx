@@ -25,8 +25,9 @@ export default function Nav() {
         <Link href="/#work">{t('work')}</Link>
         <Link href="/#services">{t('services')}</Link>
         <Link href="/#contact">{t('contact')}</Link>
-        <LanguageToggle />
       </div>
+
+      <LanguageToggle />
     </nav>
   );
 }
