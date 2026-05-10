@@ -1,10 +1,10 @@
-# alex-portfolio — gkiafis.gr
+# freelance-portfolio — freelance.alexgkiafis.gr
 
 Freelance portfolio site for Alexandros Gkiafis — the client-facing surface.
 
-**Live: [gkiafis.gr](https://gkiafis.gr) (or [the Vercel preview](https://alex-portofolio-six.vercel.app))**
+**Live: [freelance.alexgkiafis.gr](https://freelance.alexgkiafis.gr)**
 
-> One of two portfolio sites in this profile. The other is [portfolio-blog](https://github.com/AlexTuring010/portfolio-blog) — different audience (recruiters / hiring managers, with long-form writing). This repo serves prospective freelance clients.
+> One of two portfolio sites in this profile. The other is [portfolio-blog](https://github.com/AlexTuring010/portfolio-blog) at **[alexgkiafis.gr](https://alexgkiafis.gr)** — different audience (recruiters / hiring managers, with long-form writing). This repo (`freelance.alexgkiafis.gr`) serves prospective freelance clients.
 
 ## Stack
 
