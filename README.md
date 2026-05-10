@@ -1,14 +1,18 @@
-# gkiafis.gr — Portfolio
+# alex-portfolio — gkiafis.gr
 
-Freelance portfolio site for Alexandros Gkiafis. Built per `portfolio_build_brief.md`.
+Freelance portfolio site for Alexandros Gkiafis — the client-facing surface.
+
+**Live: [gkiafis.gr](https://gkiafis.gr) (or [the Vercel preview](https://alex-portofolio-six.vercel.app))**
+
+> One of two portfolio sites in this profile. The other is [portfolio-blog](https://github.com/AlexTuring010/portfolio-blog) — different audience (recruiters / hiring managers, with long-form writing). This repo serves prospective freelance clients.
 
 ## Stack
 
-- Next.js 16 (App Router, TypeScript strict, Turbopack)
-- Tailwind CSS v4
-- next-intl 4.x for EL/EN routing (`/` → Greek, `/en` → English)
-- Framer Motion for scroll-reveals (LazyMotion + `domAnimation`, respects `prefers-reduced-motion`)
-- Resend for the contact API endpoint
+- **Next.js 16** (App Router, TypeScript strict, Turbopack)
+- **Tailwind CSS v4** with `@theme` design tokens
+- **next-intl 4.x** for `/` (Greek) and `/en` (English) locale routing
+- **Framer Motion** for scroll reveals — `LazyMotion` + `domAnimation`, respects `prefers-reduced-motion`
+- **Resend** for the contact-form API endpoint
 
 ## Develop
 
@@ -21,7 +25,7 @@ npm run start        # serve the production build
 
 ## Environment variables
 
-Create `.env.local` (not committed) with:
+Create `.env.local` (not committed):
 
 ```env
 # Server-only — used by /api/contact
@@ -39,7 +43,7 @@ When deploying to Vercel, set the same vars in the project's env settings (mark 
 
 ```
 app/
-  [locale]/             # Locale-aware routes — / and /en
+  [locale]/             # Locale-aware routes — / (Greek) and /en (English)
     layout.tsx          # Fonts, metadata, NextIntl + Motion providers
     page.tsx            # Composes all sections
     not-found.tsx
@@ -70,5 +74,9 @@ middleware.ts           # next-intl locale routing
 
 ## Logs
 
-- `DEVELOPMENT_LOG.md` — running history of significant changes.
-- `HEALTH_CHECK.md` — what to verify per route / feature.
+- **`DEVELOPMENT_LOG.md`** — chronological history of significant changes.
+- **`HEALTH_CHECK.md`** — what to verify per route / feature when something changes.
+
+## License
+
+[MIT](LICENSE)
